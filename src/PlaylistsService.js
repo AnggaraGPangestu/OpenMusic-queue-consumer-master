@@ -9,9 +9,9 @@ class PlaylistsService {
     const query = {
       text: `SELECT songs.id, songs.title, songs.performer
       FROM songs
-      LEFT JOIN playlistsongs
-      ON songs.id = playlistsongs.song_id
-      WHERE playlistsongs.playlist_id = $1`,
+      LEFT JOIN songs_in_playlists
+      ON songs.id = songs_in_playlists.song_id
+      WHERE songs_in_playlists.playlist_id = $1`,
       values: [playlistId],
     };
 
